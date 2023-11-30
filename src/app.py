@@ -62,11 +62,9 @@ def add_new_todo():
 
 @app.route('/todo/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-
-   
-   todos.pop((position-1))
-
-   return jsonify(response_body), 200
+    todos.pop((position-1))
+    response_body = todos
+    return jsonify(response_body), 200
 
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
